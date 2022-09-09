@@ -1,0 +1,38 @@
+﻿@using MovieProject.Models
+@model Movie
+@{
+    ViewData["Title"] = "AddMovie";
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<style>
+    .input-validation-error {
+        border-color: red;
+    }
+</style>
+@using (Html.BeginForm("AddMovie", "Movie", FormMethod.Post))
+{
+    @Html.Label("Name")
+    @Html.TextBoxFor(x=>x.Name, new {@class="form-control"})
+    <br />
+    <b>Description</b>
+    @Html.TextAreaFor(x=>x.Description, new {@class="form-control"})
+    <br />
+    @Html.Label("Photo URL")
+    @Html.TextAreaFor(x=>x.ImageUrl, new {@class="form-control"})
+    <br />
+    @Html.Label("Video URL")
+    @Html.TextAreaFor(x=>x.VideoUrl, new {@class="form-control"})
+    <br />
+    <b>Category</b>
+    @Html.DropDownListFor(x=>x.CategoryId, (List<SelectListItem>)ViewBag.v1, new{@class="form-control"})
+    <br />
+    <button  class="btn btn-primary">Add</button>
+}
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+

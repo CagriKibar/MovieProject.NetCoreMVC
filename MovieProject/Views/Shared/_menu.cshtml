@@ -1,0 +1,13 @@
+﻿@using MovieProject.Models
+@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<div class="list-group">
+ @foreach (var item in Model)
+{
+    <a href="#" class="list-group-item list-group-item-action">@item.CategoryName</a>
+}
+</div>
+
